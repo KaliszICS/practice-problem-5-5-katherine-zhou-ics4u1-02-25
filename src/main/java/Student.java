@@ -1,43 +1,45 @@
-class Student implements Comparable<Student>{
-    private String name;
-    private int age;
-    private int studentNumber;
 
-    public Student(String name, int age, int studentNumber){
-        this.name = name;
-        this.age = age;
-        this.studentNumber = studentNumber;
+public class Student implements Comparable<Student>{
+    public String name, studentnumber;
+    public int age;
+
+    public Student(String name, int age, String studentnumber){
+        this.name=name;
+        this.age=age;
+        this.studentnumber=studentnumber;
     }
 
     public String getName(){
         return this.name;
     }
 
-    public int getAge(){
+     public int getAge(){
         return this.age;
     }
 
-    public int getStudentNumber(){
-        return this.studentNumber;
+     public String getStudentNumber(){
+        return this.studentnumber;
     }
 
-    public void setName(String name){
-        this.name = name;
+     public void setName(String name){
+        this.name=name;
     }
 
-    public void setAge(int age){
-        this.age = age;
+      public void setAge(int age){
+        this.age=age;
+    }
+      public void setStudentNumber(String studentnumber){
+        this.studentnumber=studentnumber;
     }
 
-    public void setStudentNumber(int studentNumber){
-        this.studentNumber = studentNumber;
+    public int compareTo(Student student){
+        return this.studentnumber.compareTo(student.getStudentNumber());
     }
 
     public String toString(){
-        return "N:" + name + " A:" + age + " SN:" + this.studentNumber;
-    }
-
-    public int compareTo(Student you){
-        return Integer.compare(this.studentNumber, you.studentNumber);
+        if(this.name==null||this.studentnumber==null){
+            return null;
+        }
+        return "N:"+ this.name+ " A:"+this.age+ " SN:"+this.studentnumber;
     }
 }
